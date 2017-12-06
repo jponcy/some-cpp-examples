@@ -1,0 +1,9 @@
+/lib/
+/bin/
+!/bin/run.sh
+
+## Cmake.
+Makefile
+cmake*
+CMake*
+!CMakeLists.txt
