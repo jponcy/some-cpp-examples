@@ -1,6 +1,7 @@
 /lib/
 /bin/
 !/bin/run.sh
+/.vscode/
 
 ## Cmake.
 Makefile
