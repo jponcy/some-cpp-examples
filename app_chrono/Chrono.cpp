@@ -5,7 +5,7 @@
  *      Author: jonathan
  */
 
-#include "Chrono.h"
+#include "Chrono.hpp"
 #include <iostream>
 
 namespace app {

@@ -10,8 +10,11 @@ set(LIBRARY_OUTPUT_PATH     lib)
 
 # ## Sub librairies.
 add_subdirectory(app_chrono)
-include_directories(${CMAKE_CURRENT_LIST_DIR})
-# include_directories(src/app_chrono)
+include_directories(${CMAKE_CURRENT_LIST_DIR} app_chrono)
+
+# target_include_directories(app_chrono PRIVATE )
+
+# include_directories(app_chrono)
 # # link_directories(src/app_chrono)
 # # link_directories(lib)
 
@@ -25,4 +28,4 @@ add_executable(exe src/main.cpp)
 # add_executable(exe ${source_files})
 
 # link_libraries(exe app_chrono)
-target_link_libraries(exe LINK_PUBLIC app_chrono)
+target_link_libraries(exe appschrono)
