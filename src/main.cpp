@@ -1,18 +1,6 @@
 #include <iostream>
-
-// #include <Chrono.h>
-// #include <appschrono>
-// #include <appschrono/Chrono.h>
-
 #include <Chrono.hpp>
 
-// #include <app_chrono>
-// #include "app_chrono/chrono.h"
-
-// #include <chrono/Chrono.h>
-// #include "chrono/Chrono.h"
-
-namespace app{}
 using namespace app;
 
 int main() {
@@ -20,7 +8,7 @@ int main() {
 
   Chrono c(0, 0, 0);
 
-  cout << "coucou" << endl;
+  cout << "Je suis le programme !" << endl;
 
   return EXIT_SUCCESS;
 }

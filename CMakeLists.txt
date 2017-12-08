@@ -1,31 +1,29 @@
 cmake_minimum_required(VERSION 3.9)
 project(Chrono)
 
-## Update generated file location.
-set(EXECUTABLE_OUTPUT_PATH  bin)
-set(LIBRARY_OUTPUT_PATH     lib)
-# set(CMAKE_BUILD_RPATH rpa)
+set(SHOULD_TEST NOT(CMAKE_BUILD_TYPE STREQUAL "Release"))
 
-# file(GLOB_RECURSE source_files src/*)
+## Update generated files location.
+set(EXECUTABLE_OUTPUT_PATH  "${CMAKE_HOME_DIRECTORY}/bin")
+set(LIBRARY_OUTPUT_PATH     "${CMAKE_HOME_DIRECTORY}/lib")
 
-# ## Sub librairies.
-add_subdirectory(app_chrono)
-include_directories(${CMAKE_CURRENT_LIST_DIR} app_chrono)
+## Enable tests.
+if(SHOULD_TEST)
+  enable_testing()
+endif(SHOULD_TEST)
 
-# target_include_directories(app_chrono PRIVATE )
+## Include headers.
+include_directories(includes)
 
-# include_directories(app_chrono)
-# # link_directories(src/app_chrono)
-# # link_directories(lib)
+## Sub librairies.
+add_subdirectory(src) # Declare library: chrono.
 
-# add_subdirectory(src)
-# # link_directories(src)
-# # add_library(chrono chrono)
-
-# add_library(app_chrono STATIC src/app_chrono/Chrono.cpp)
-
+## Main executable.
 add_executable(exe src/main.cpp)
-# add_executable(exe ${source_files})
+target_link_libraries(exe chrono)
 
-# link_libraries(exe app_chrono)
-target_link_libraries(exe appschrono)
+## Tests.
+# if(SHOULD_TEST)
+  ## Add real tests.
+  add_subdirectory(test)
+# endif(SHOULD_TEST)
