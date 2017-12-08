@@ -22,6 +22,4 @@ target_link_libraries(exe chrono)
 
 ## Tests
 add_test(can_execute ${EXECUTABLE_OUTPUT_PATH}/exe)
-set(UNIT_TEST ${CMAKE_CTEST_COMMAND})
-# set(UNIT_TEST can_execute)
 add_subdirectory(test)

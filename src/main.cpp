@@ -1,15 +1,26 @@
-#include <iostream>
 #include <Chrono.hpp>
+#include <functional>
+#include <iostream>
+#include <vector>
 
-using namespace app;
+#define MAX 10
 
 int main() {
-	using namespace std;
+  using namespace app;
+  using namespace std;
 
-	Chrono c(0, 0, 0);
-	cout << c << endl;
+  unsigned short pres = std::to_string(MAX).length();
+  Chrono         c;
 
-	cout << "Je suis le programme !" << endl;
+  for (unsigned short i = 1; i <= MAX; ++i) {
+    Chrono turn(0, rand() % 60, rand() % 60);
+    cout << "Turn n°" << std::setw(pres) << std::setfill(' ') << i << " with chrono: " << turn << endl;
+    c = c + turn;
+  }
 
-	return EXIT_SUCCESS;
+  cout << endl << "Final chrono: " << c << endl;
+
+  cout << "Je suis le programme !" << endl;
+
+  return EXIT_SUCCESS;
 }

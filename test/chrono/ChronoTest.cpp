@@ -32,7 +32,7 @@ void ChronoTest::testOperatorPlus() {
   assert(t.seconds() == 40);
 
   // Add again.
-  t = t + second;
+  t += second;
   assert(t.hours() == 4);
   assert(t.minutes() == 0);
   assert(t.seconds() == 20);
