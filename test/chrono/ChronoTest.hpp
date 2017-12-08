@@ -12,7 +12,10 @@ public:
   void runAll();
 
 private:
-  void testChronoToSec();
+  /** Tests the toSec method. */
+  void testToSec();
+  /** Tests the + operator. */
+  void testOperatorPlus();
 };
 
 } // namespace app

@@ -1,29 +1,27 @@
 cmake_minimum_required(VERSION 3.9)
 project(Chrono)
 
-set(SHOULD_TEST NOT(CMAKE_BUILD_TYPE STREQUAL "Release"))
+include(CTest)
 
-## Update generated files location.
-set(EXECUTABLE_OUTPUT_PATH  "${CMAKE_HOME_DIRECTORY}/bin")
-set(LIBRARY_OUTPUT_PATH     "${CMAKE_HOME_DIRECTORY}/lib")
+## Update generated file location.
+set(EXECUTABLE_OUTPUT_PATH  ${CMAKE_HOME_DIRECTORY}/bin)
+set(LIBRARY_OUTPUT_PATH     ${CMAKE_HOME_DIRECTORY}/lib)
 
-## Enable tests.
-if(SHOULD_TEST)
-  enable_testing()
-endif(SHOULD_TEST)
+## Tests.
+enable_testing()
 
-## Include headers.
-include_directories(includes)
+## Headers files.
+include_directories(include)
 
 ## Sub librairies.
-add_subdirectory(src) # Declare library: chrono.
+add_subdirectory(src) # Provide library: chrono.
 
 ## Main executable.
 add_executable(exe src/main.cpp)
 target_link_libraries(exe chrono)
 
-## Tests.
-# if(SHOULD_TEST)
-  ## Add real tests.
-  add_subdirectory(test)
-# endif(SHOULD_TEST)
+## Tests
+add_test(can_execute ${EXECUTABLE_OUTPUT_PATH}/exe)
+set(UNIT_TEST ${CMAKE_CTEST_COMMAND})
+# set(UNIT_TEST can_execute)
+add_subdirectory(test)

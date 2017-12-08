@@ -9,3 +9,4 @@ Makefile
 CMake*
 *.cmake
 !CMakeLists.txt
+DartConfiguration.tcl
