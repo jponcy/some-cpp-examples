@@ -1,20 +1,14 @@
-/*
- * Chrono.h
- *
- *  Created on: 5 déc. 2017
- *      Author: jonathan
- */
-
 #ifndef APP_CHRONO_H_
 #define APP_CHRONO_H_
 
 #include <iomanip>
 #include <iostream>
 #include <sstream>
+#include <AChrono.hpp>
 
 namespace app {
 
-class Chrono {
+class Chrono : public AChrono {
 public:
   Chrono(const Chrono &origin);
   /** The default constructor. */
@@ -39,7 +33,7 @@ public:
     return os;
   }
 
-  std::string describe() const {
+  virtual std::string describe() const {
     std::stringstream ss;
     ss << this->h << ":" << this->m << ":" << this->s;
     return ss.str();
@@ -50,10 +44,8 @@ public:
   /** Add operation. */
   Chrono operator+=(Chrono second);
 
-  /** Converts the given hour/minute/second number to a sumation second. */
-  static int toSec(unsigned int hours, unsigned int minutes, unsigned int seconds) {
-    return hours * 3600 + minutes * 60 + seconds;
-  }
+  /** Converts the given hour/minute/second number to seconds. */
+  static int toSec(unsigned int hours, unsigned int minutes, unsigned int seconds);
 
 private:
   unsigned short h, m, s;

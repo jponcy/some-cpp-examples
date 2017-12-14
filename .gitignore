@@ -10,3 +10,8 @@ CMake*
 *.cmake
 !CMakeLists.txt
 DartConfiguration.tcl
+
+## Visual code.
+/.cproject
+.project
+.settings/language.settings.xml

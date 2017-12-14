@@ -45,4 +45,8 @@ void Chrono::addSecs(unsigned int seconds) {
 	h += seconds / 3600 + ret;
 }
 
+int Chrono::toSec(unsigned int hours, unsigned int minutes, unsigned int seconds) {
+    return hours * 3600 + minutes * 60 + seconds;
+}
+
 } /* namespace app */

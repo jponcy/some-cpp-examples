@@ -18,7 +18,7 @@ add_subdirectory(src) # Provide library: chrono.
 
 ## Main executable.
 add_executable(exe src/main.cpp)
-target_link_libraries(exe chrono)
+target_link_libraries(exe chrono friend)
 
 ## Tests
 add_test(can_execute ${EXECUTABLE_OUTPUT_PATH}/exe)
